@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover what our clients say about our exceptional services. Share your experience with us.">
+    <title>Testimonials Hub</title>  
+      <link rel="icon" type="image/png" href="IGNITRON 2K25 LOGO-01-01.png"> 
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary: #00ff99;
+    --primary-dark: #00cc7a;
+    --primary-glow: rgba(0, 255, 153, 0.25);
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --light: #e8ecef;
+    --smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --ultra-smooth: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.testimonials-section {
+    padding: 8rem 2rem 5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, var(--dark) 0%, var(--darker) 100%);
+}
+
+.testimonials-grid {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.testimonial-card {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid rgba(0, 255, 153, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: var(--ultra-smooth);
+    backdrop-filter: blur(12px);
+    will-change: transform, box-shadow;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+.testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+.testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+.testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px var(--primary-glow);
+    border-color: var(--primary);
+}
+
+.testimonial-content {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--light);
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.testimonial-content::before {
+    content: '“';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    color: var(--primary);
+    opacity: 0.4;
+}
+
+.testimonial-content::after {
+    content: '”';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 1.5rem;
+    color: var(--primary);
+    opacity: 0.4;
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.star {
+    color: var(--primary);
+    font-size: 1rem;
+    text-shadow: 0 0 6px var(--primary-glow);
+    transition: var(--smooth);
+}
+
+.star:hover {
+    transform: scale(1.1);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.author-image {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--primary);
+    transition: var(--smooth);
+}
+
+.author-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.author-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+}
+
+.author-info p {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--light);
+    opacity: 0.7;
+}
+
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 6rem 1.5rem 4rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 5rem 1rem 3rem;
+    }
+
+    .testimonial-content {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-content::before,
+    .testimonial-content::after {
+        font-size: 1.2rem;
+    }
+
+    .star {
+        font-size: 0.9rem;
+    }
+
+    .author-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .author-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .author-info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary: #00ff00;
+        --light: #ffffff;
+        --dark: #000000;
+    }
+}
+    </style>
+</head>
+
+       <header class="site-header">
+        <div class="header-container">
+            <!-- Event Title -->
+            <div class="event-title">
+                <a href="index.html" class="title-link" aria-label="Ignitron Tech Fest Homepage">IGNITRON</a>
+                <span class="event-year">2K25</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                     <li><a href="Tech_Crew.html" class="nav-link">Tech Crew</a></li>
+                   <li><a href="gallery.html" class="nav-link ">GALLERY</a></li>
+                    <li><a href="login.html" class="nav-link cta-button">Login</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+        </div>
+    </header>
+
+
+<body>
+    <section class="testimonials-section">
+        <div class="testimonials-grid">
+            <div class="testimonial-card gpu-accelerated">
+                <div class="testimonial-content">
+             Coming from a Tier-1 college, I’ve been to some of the biggest and most talked-about fests in the country. But Ignitron genuinely surprised me in the best way possible. The scale, the passion, and the execution. The vibe felt raw and real.
+                </div>
+                <!-- <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div> -->
+                <div class="testimonial-author">
+                    <img src="photos\Amar M Bendre.jpg" alt="Author" class="author-image">
+                    <div class="author-info">
+                        <h3>Amar M Bendre</h3>
+                        <p>R V College of Engineering</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card gpu-accelerated">
+                <div class="testimonial-content">
+                   It’s rare for a first-year fest to create such a massive impact, but Ignitron nailed it. The crowd, the vibes, and the sheer excitement were something else. It already feels like a tradition. The coordinators deserve all the credit for making it look effortless.
+                </div>
+                
+                <div class="testimonial-author">
+                    <img src="photos\B Nagateja.jpg" alt="Author" class="author-image">
+                    <div class="author-info">
+                        <h3>B Nagateja </h3>
+                        <p>Ballari Business College </p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card gpu-accelerated">
+                <div class="testimonial-content">
+                   You know a fest is special when people are still talking about it weeks later. Ignitron created that kind of buzz. If this is how good year one was, I can’t wait to see what’s next. Highly recommended to all students whether you're performing, competing, or just vibing!
+                </div>
+             
+                <div class="testimonial-author">
+                    <img src="photos\Rohan.jpg" alt="Author" class="author-image">
+                    <div class="author-info">
+                        <h3>Rohan R G </h3>
+                        <p>G M Institute of Technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+</html>
